@@ -1,0 +1,92 @@
+<div class="footer">
+  <div class="footer__container">
+
+    <div class="footer__grid footer__grid--2">
+      <!-- 1) О нас -->
+      <section class="footer__about" aria-labelledby="footer-about-title">
+        <h4 id="footer-about-title" class="footer__title" data-i18n="footer.about.title">Pro Live Events</h4>
+        <p class="footer__text" data-i18n="footer.about.text">
+          Professional organization of concerts and events. Lighting, sound, stage — everything turnkey across Poland and abroad.
+        </p>
+
+        <div class="footer__separator" aria-hidden="true"></div>
+
+        <!-- соцсети (только FB + IG) -->
+        <ul class="footer__socials" aria-label="Social media">
+          <li>
+            <a class="footer__social" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+              <img src="assets/social/Facebook_ico.png" alt="" loading="lazy">
+            </a>
+          </li>
+          <li>
+            <a class="footer__social" href="https://www.instagram.com/proliveevents/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+              <img src="assets/social/Instagram_ico.png" alt="" loading="lazy">
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 2) Ссылки + Newsletter -->
+      <div class="footer__right">
+        <nav class="footer__links" aria-labelledby="footer-links-title">
+          <h4 id="footer-links-title" class="footer__title" data-i18n="footer.links.title">Quick Links</h4>
+          <ul class="footer__menu">
+            <li><a class="footer__link" href="#top" data-i18n="footer.links.home">Home</a></li>
+            <li><a class="footer__link" href="#proliveevents" data-i18n="footer.links.ple">Pro Live Events</a></li>
+            <li><a class="footer__link" href="#flesh" data-i18n="footer.links.flashpro">FlashPro</a></li>
+            <li><a class="footer__link" href="#gallery" data-i18n="footer.links.gallery">Галерея</a></li>
+            <li><a class="footer__link" href="#artists" data-i18n="footer.links.artists">Артисты</a></li>
+            <li><a class="footer__link" href="#contacts" data-i18n="footer.links.contact">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <!-- разделитель между списком и формой -->
+        <div class="footer__separator footer__separator--sub" aria-hidden="true"></div>
+
+        <form class="footer__newsletter" action="#" method="post" novalidate aria-labelledby="footer-newsletter-title">
+          <h4 id="footer-newsletter-title" class="footer__title" data-i18n="footer.newsletter.label">Newsletter</h4>
+
+          <div class="footer__newsletter-row">
+            <input id="nl-email" name="email" type="email" class="footer__input"
+                   placeholder="e-mail" required aria-required="true" />
+            <button type="submit" class="footer__btn" data-i18n="footer.newsletter.submit">OK</button>
+          </div>
+
+          <p class="footer__note">
+            <input id="nl-consent" type="checkbox" required aria-required="true">
+            <label for="nl-consent" data-i18n="footer.newsletter.consent">
+              I agree to the processing of my data in accordance with the Privacy Policy.
+            </label>
+          </p>
+
+          <!-- сообщения формы -->
+          <p class="footer__form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- разделительная линия над нижней полосой -->
+    <div class="footer__legal-separator" aria-hidden="true"></div>
+
+    <!-- 3) Нижняя полоса: Privacy Policy слева, копирайт по центру, кнопка "вверх" справа -->
+    <div class="footer__legal footer__legal--centered">
+      <a class="footer__policy" href="/privacy.html" data-i18n="footer.links.privacy">Privacy Policy</a>
+      <p class="footer__copy">© <span data-i18n="footer.legal.year">2025</span> Pro Live Events. <span data-i18n="footer.legal.rights">All rights reserved.</span></p>
+      <button class="footer__totop footer__totop--right" aria-label="Back to top" title="Back to top">↑</button>
+    </div>
+  </div>
+
+  <!-- POPUP: Privacy Policy -->
+  <div class="footer-modal" id="privacy-modal" hidden>
+    <div class="footer-modal__overlay" data-close="true"></div>
+    <div class="footer-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+      <button class="footer-modal__close" type="button" aria-label="Close">✕</button>
+      <h3 id="privacy-title" class="footer-modal__title">Privacy Policy</h3>
+      <div class="footer-modal__content">
+        <p><strong>Sample text.</strong> This is a placeholder for your Privacy Policy. It explains what data we collect, why we collect it, how long we store it, and how users can request access or deletion of their data.</p>
+        <p>We use your e-mail exclusively to send our newsletter. You can unsubscribe at any time by clicking the link in any newsletter message.</p>
+        <p>Controller: Pro Live Events, Opole, Poland. Contact: privacy@pro-live-events.pl</p>
+      </div>
+    </div>
+  </div>
+</div>

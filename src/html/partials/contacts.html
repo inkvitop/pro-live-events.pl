@@ -1,0 +1,93 @@
+<div class="contacts-bg"></div>
+<h2 class="contacts-title" data-i18n="contacts.title"></h2>
+<div class="contacts-title-border"></div>
+
+<div class="contacts-box">
+    
+    <form class="form form--contact" novalidate>
+        <div class="form__group">
+            <label for="name" class="form__label" data-i18n="contacts.form.nameLabel"></label>
+            <input type="text" id="name" name="name" class="form__input" data-i18n="contacts.form.namePlaceholder" required>
+        </div>
+
+        <div class="form__group">
+            <label for="email" class="form__label" data-i18n="contacts.form.emailLabel"></label>
+            <input type="email" id="email" name="email" class="form__input" data-i18n="contacts.form.emailPlaceholder" required>
+        </div>
+
+        <div class="form__group">
+            <label for="phone" class="form__label" data-i18n="contacts.form.phoneLabel"></label>
+            <input type="tel" id="phone" name="phone" class="form__input" data-i18n="contacts.form.phonePlaceholder" required>
+        </div>
+
+        <div class="form__group">
+            <label for="message" class="form__label" data-i18n="contacts.form.messageLabel"></label>
+            <textarea id="message" name="message" class="form__textarea" rows="5" data-i18n="contacts.form.messagePlaceholder" required></textarea>
+        </div>
+
+        <fieldset class="form__fieldset">
+            <legend class="form__legend" data-i18n="contacts.form.interestLegend"></legend>
+
+            <label class="form__checkbox">
+            <input type="checkbox" name="interest" value="concerts" checked>
+            <span class="form__checkbox-label" data-i18n="contacts.form.interestConcerts"></span>
+            </label>
+
+            <label class="form__checkbox">
+            <input type="checkbox" name="interest" value="lighting" checked>
+            <span class="form__checkbox-label" data-i18n="contacts.form.interestLighting"></span>
+            </label>
+
+            <label class="form__checkbox">
+            <input type="checkbox" name="interest" value="artist" checked>
+            <span class="form__checkbox-label" data-i18n="contacts.form.interestArtist"></span>
+            </label>
+
+            <label class="form__checkbox">
+            <input type="checkbox" name="interest" value="event-planning" checked>
+            <span class="form__checkbox-label" data-i18n="contacts.form.interestEventPlanning"></span>
+            </label>
+
+            <label class="form__checkbox">
+            <input type="checkbox" name="interest" value="sponsorships" checked>
+            <span class="form__checkbox-label" data-i18n="contacts.form.interestSponsorships"></span>
+            </label>
+
+            <label class="form__checkbox">
+            <input type="checkbox" name="interest" value="technical" checked>
+            <span class="form__checkbox-label" data-i18n="contacts.form.interestTechnical"></span>
+            </label>
+        </fieldset>
+
+        <button type="submit" class="form__submit" data-i18n="contacts.form.submit"></button>
+    </form>
+
+    <div class="contacts-box-border"></div>
+
+    <div class="contacts-box-contacts">
+        <h3 class="contacts-box-contacts-title" data-i18n="contacts.info.title"></h3>
+
+        <div class="contacts-box-contacts-info">
+            <div class="contacts-box-contacts-info-persona">
+                <h5 class="contacts-box-contacts-info-persona-label" data-i18n="contacts.info.directorLabel"></h5>
+                <div class="contacts-box-contacts-info-persona-box">
+                    <span class="contacts-box-contacts-info-persona-box-name" data-i18n="contacts.info.directorName"></span>
+                    <a href="tel:+48796270792" class="contacts-box-contacts-info-persona-box-tel" data-i18n="contacts.info.directorPhone"></a>
+                </div>
+            </div>
+            <div class="contacts-box-contacts-info-persona">
+                <h5 class="contacts-box-contacts-info-persona-label" data-i18n="contacts.info.technicalDirectorLabel"></h5>
+                <div class="contacts-box-contacts-info-persona-box">
+                    <span class="contacts-box-contacts-info-persona-box-name" data-i18n="contacts.info.technicalDirectorName"></span>
+                    <a href="tel:+48602465066" class="contacts-box-contacts-info-persona-box-tel" data-i18n="contacts.info.technicalDirectorPhone"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacts-box-contacts-adres">
+            <h4 class="contacts-box-contacts-adres-title" data-i18n="contacts.info.map"></h4>
+            <span class="contacts-box-contacts-adres-info" data-i18n="contacts.info.adres"></span>
+            <div id="map" class="leaflet-map"></div>
+        </div>
+    </div>
+</div>

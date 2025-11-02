@@ -1,0 +1,211 @@
+{
+  "header": {
+    "menu": {
+      "ple": "Pro Live Events",
+      "flesh": "FlashPro",
+      "gallery": "Galeria",
+      "artists": "Artyści",
+      "contacts": "Kontakt"
+    }
+  },
+  "intro": {
+    "ple": {
+      "badge": "Pro Live Events",
+      "title": "Organizacja wydarzeń",
+      "desc": "Kompleksowa produkcja sceniczna...",
+      "cta": "Zobacz ofertę"
+    },
+    "flesh": {
+      "badge": "FlashPro",
+      "title": "Profesjonalne oświetlenie",
+      "desc": "Zaawansowane rozwiązania oświetleniowe dla Twoich wydarzeń",
+      "cta": "Poznaj ofertę"
+    }
+  },
+  "proliveevents": {
+    "title": "Usługi Pro Live Events"
+  },
+  "prolive": {
+    "org": {
+      "title": "Organizacja wydarzeń",
+      "desc": "Kompleksowa organizacja i produkcja wydarzeń na najwyższym poziomie",
+      "btn": "Dowiedz się więcej"
+    },
+    "rental": {
+      "title": "Wynajem sprzętu",
+      "desc": "Profesjonalny sprzęt sceniczny i oświetleniowy do wynajęcia",
+      "btn": "Zobacz ofertę"
+    },
+    "crew": {
+      "title": "Zespół techniczny",
+      "desc": "Doświadczona ekipa techniczna do realizacji każdego projektu",
+      "btn": "Skontaktuj się"
+    },
+    "artists": {
+      "title": "Współpraca z artystami",
+      "desc": "Reprezentacja i management utalentowanych artystów",
+      "btn": "Poznaj artystów"
+    }
+  },
+  "artists": {
+    "title": "Nasi Artyści",
+    "lead": "Poznaj naszych utalentowanych artystów",
+    "items": {
+      "karolina": {
+        "name": "Karolina",
+        "bio": "Utalentowana wokalistka z wyjątkowym głosem i sceniczną charyzmą",
+        "programs": [
+          {
+            "title": "Recital akustyczny",
+            "desc": "Intymny występ z akompaniamentem gitary"
+          },
+          {
+            "title": "Koncert z zespołem",
+            "desc": "Energetyczny występ z pełnym składem muzycznym"
+          },
+          {
+            "title": "Oprawa muzyczna eventów",
+            "desc": "Profesjonalna oprawa muzyczna dla wydarzeń specjalnych"
+          }
+        ]
+      },
+      "nel": {
+        "name": "Nel",
+        "bio": "Wszechstronny muzyk i kompozytor z unikalnym stylem",
+        "programs": [
+          {
+            "title": "Set elektroniczny",
+            "desc": "Autorska muzyka elektroniczna w nowoczesnym brzmieniu"
+          },
+          {
+            "title": "Live act",
+            "desc": "Występ na żywo z wykorzystaniem kontrolerów MIDI"
+          }
+        ]
+      },
+      "paszczyk": {
+        "name": "Paszczyk",
+        "bio": "Experymentalny artysta łączący różne gatunki muzyczne",
+        "programs": [
+          {
+            "title": "Performance audiowizualny",
+            "desc": "Połączenie muzyki eksperymentalnej z wizualizacjami"
+          }
+        ]
+      },
+      "skiba": {
+        "name": "Skiba",
+        "bio": "Dynamiczny performer z energią sceniczną",
+        "programs": [
+          {
+            "title": "Set klubowy",
+            "desc": "Energetyczny set idealny na imprezy klubowe"
+          }
+        ]
+      },
+      "dj_choinax": {
+        "name": "DJ Choinax",
+        "bio": "Doświadczony DJ specjalizujący się w muzyce elektronicznej",
+        "programs": [
+          {
+            "title": "Set DJ-ski",
+            "desc": "Profesjonalny set DJ-ski na każdą okazję"
+          },
+          {
+            "title": "Afterparty",
+            "desc": "Specjalny set na afterparty i wydarzenia klubowe"
+          }
+        ]
+      }
+    }
+  },
+  "contacts": {
+    "title": "Rozświetlmy Twoje wydarzenie",
+    "info": {
+      "title": "Informacje kontaktowe",
+      "directorLabel": "Dyrektor",
+      "directorName": "Krystian Szafrański",
+      "directorPhone": "+48 796 270 792",
+      "technicalDirectorLabel": "Dyrektor techniczny",
+      "technicalDirectorName": "Michał Chojnacki",
+      "technicalDirectorPhone": "+48 602 465 066",
+      "map": "Nasza lokalizacja",
+      "adres": "ul. Oleska 29A, Zawada, Polska"
+    },
+    "form": {
+      "nameLabel": "Imię i nazwisko",
+      "namePlaceholder": "Wprowadź swoje imię i nazwisko",
+      "emailLabel": "Twój adres e-mail",
+      "emailPlaceholder": "przyklad@domena.pl",
+      "phoneLabel": "Twój numer telefonu",
+      "phonePlaceholder": "+48 123 456 789",
+      "messageLabel": "Opisz swoje zapytanie",
+      "messagePlaceholder": "Co chciałbyś/chciałabyś wiedzieć?",
+      "interestLegend": "Wybierz obszar zainteresowania",
+      "interestConcerts": "Koncerty",
+      "interestLighting": "Oświetlenie",
+      "interestArtist": "Artyści",
+      "interestEventPlanning": "Planowanie wydarzeń",
+      "interestSponsorships": "Sponsoring",
+      "interestTechnical": "Technika",
+      "submit": "Wyślij",
+      "errors": {
+        "nameRequired": "Imię i nazwisko jest wymagane",
+        "contactRequired": "Proszę podać adres email lub numer telefonu",
+        "messageRequired": "Wiadomość jest wymagana",
+        "success": "Formularz został wysłany pomyślnie!"
+      }
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "O nas",
+      "text": "Profesjonalna organizacja wydarzeń i produkcja sceniczna na najwyższym poziomie"
+    },
+    "links": {
+      "title": "Szybkie linki",
+      "home": "Strona główna",
+      "ple": "Pro Live Events",
+      "flashpro": "FlashPro",
+      "gallery": "Galeria",
+      "artists": "Artyści",
+      "contact": "Kontakt",
+      "privacy": "Polityka prywatności"
+    },
+    "newsletter": {
+      "label": "Zapisz się do newslettera",
+      "placeholder": "Twój adres e-mail",
+      "submit": "Subskrybuj",
+      "consent": "Wyrażam zgodę na przetwarzanie danych"
+    },
+    "legal": {
+      "year": "2024",
+      "rights": "Wszelkie prawa zastrzeżone"
+    }
+  },
+  "gallery": {
+    "title": "Galeria naszych realizacji",
+    "filterAll": "Wszystkie",
+    "filterConcerts": "Koncerty",
+    "filterEvents": "Wydarzenia",
+    "filterLighting": "Oświetlenie"
+  },
+  "flesh": {
+    "title": "FlashPro - Oświetlenie",
+    "subtitle": "Profesjonalne rozwiązania oświetleniowe",
+    "services": {
+      "design": {
+        "title": "Projektowanie",
+        "desc": "Kompleksowe projekty oświetleniowe"
+      },
+      "rental": {
+        "title": "Wynajem",
+        "desc": "Nowoczesny sprzęt oświetleniowy"
+      },
+      "operation": {
+        "title": "Obsługa",
+        "desc": "Profesjonalna obsługa techniczna"
+      }
+    }
+  }
+}

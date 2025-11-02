@@ -1,0 +1,63 @@
+{
+  "header": {
+    "menu": {
+      "ple": "Pro Live Events",
+      "flesh": "FlashPro",
+      "gallery": "Gallery",
+      "artists": "Artists",
+      "contacts": "Contacts"
+    }
+  },
+  "proliveevents": {
+
+  },
+  "level": {
+
+  },
+  "gallery": {
+
+  },
+  "artists": {
+
+  },
+
+  "contacts": {
+    "title": "Let’s light up your event",
+    "info": {
+      "title": "Contact Information",
+      "directorLabel": "Director",
+      "directorName": "Krystian Shafranski: ",
+      "directorPhone": "+48 796 270 792",
+      "technicalDirectorLabel": "Technical Director",
+      "technicalDirectorName": "Michal Choinacki: ",
+      "technicalDirectorPhone": "+48 602 465 066",
+      "map": "Here’s Where to Find Us",
+      "adres": "Oleska 29A, 46-022 Zawada"
+    }
+  },
+
+  "footer": {
+    "about": {
+      "title": "Pro Live Events",
+      "text": "Professional organization of concerts and events. Lighting, sound, stage — everything turnkey across Poland and abroad."
+    },
+    "links": {
+      "title": "Quick Links",
+      "about": "About Us",
+      "services": "Services",
+      "gallery": "Gallery",
+      "artists": "Artists",
+      "contact": "Contact",
+      "privacy": "Privacy Policy"
+    },
+    "newsletter": {
+      "label": "Newsletter",
+      "submit": "OK",
+      "consent": "I agree to the processing of my data in accordance with the Privacy Policy."
+    },
+    "legal": {
+      "year": "2025",
+      "rights": "All rights reserved."
+    }
+  }
+}

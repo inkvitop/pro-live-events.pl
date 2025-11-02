@@ -1,0 +1,260 @@
+.proliveevents {
+  background: var(--color-bg);
+  padding: clamp(32px, 6vw, 72px) 0;
+  --pe-body-gutter: clamp(24px, 5vw, 72px);
+
+  &-viewport {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  &-wrapper {
+    display: grid;
+    gap: clamp(18px, 3vw, 28px);
+  }
+
+  &-title {
+    margin: 0 auto clamp(24px, 4vw, 48px);
+    text-align: center;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    color: var(--text-primary);
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: rgba(255, 255, 255, .9);
+      border-radius: 2px;
+    }
+  }
+
+  &-card {
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    gap: clamp(16px, 2.5vw, 28px);
+    align-items: stretch;
+    padding: clamp(16px, 2vw, 22px);
+    border-radius: 16px;
+    background: linear-gradient(0deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02)), var(--color-bg);
+    border: 1px solid var(--color-bg2-opacity);
+    box-shadow: 0 1px 0 rgba(0,0,0,.22) inset;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    border-top: 4px solid var(--pe-accent);
+
+    --pe-accent: var(--color-accent);
+    --pe-accent-hover: var(--color-accent-hover);
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-bg3-opacity);
+      border-top-color: var(--pe-accent-hover);
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+    }
+
+    &--org {
+      --pe-accent: #4caf50;
+      --pe-accent-hover: #43a047;
+    }
+
+    &--rental {
+      --pe-accent: #ff9800;
+      --pe-accent-hover: #fb8c00;
+    }
+
+    &--crew {
+      --pe-accent: #03a9f4;
+      --pe-accent-hover: #039be5;
+    }
+
+    &--artists {
+      --pe-accent: #9c27b0;
+      --pe-accent-hover: #8e24aa;
+    }
+
+    &:nth-of-type(even) {
+      grid-template-columns: 1fr 480px;
+
+      .proliveevents-card__img {
+        order: 2;
+      }
+
+      .proliveevents-card__body {
+        order: 1;
+        padding-inline-start: var(--pe-body-gutter);
+        padding-inline-end: clamp(8px, 1.6vw, 18px);
+        text-align: center;
+      }
+
+      .proliveevents-card__btn {
+        justify-self: flex-start;
+      }
+    }
+  }
+
+  &-card__img {
+    width: 480px;
+    height: 270px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+    background: var(--color-bg2-opacity);
+    border: 1px solid var(--color-bg2-opacity);
+    align-self: center;
+    transition: box-shadow .25s ease, border-color .2s ease;
+
+    /* убрано увеличение при hover */
+    .proliveevents-card:hover & {
+      border-color: var(--color-bg3-opacity);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+    }
+  }
+
+  &-card__body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    min-height: 100%;
+    padding-inline-end: var(--pe-body-gutter);
+    padding-inline-start: clamp(8px, 1.6vw, 18px);
+    text-align: center;
+    width: 100%;
+  }
+
+  &-card__title {
+    margin: 0;
+    color: var(--text-primary);
+    font-weight: 800;
+    letter-spacing: .2px;
+    font-size: clamp(1.1rem, 1.4vw, 1.4rem);
+    justify-self: center;
+    position: relative;
+    padding-bottom: 6px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 2px;
+      background: rgba(255, 255, 255, .9);
+      border-radius: 2px;
+    }
+  }
+
+  &-card__text {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: clamp(.95rem, 1vw, 1rem);
+    justify-self: stretch;
+  }
+
+  &-card__underline {
+    width: 56px;
+    height: 2px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, .9);
+    justify-self: center;
+    align-self: end;
+    margin-top: 6px;
+    margin-bottom: 8px;
+
+    @media (max-width: 720px) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &-card__btn {
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    border: 1px solid #fff; /* белая рамка */
+    background: var(--pe-accent);
+    color: #111;
+    font-weight: 800;
+    letter-spacing: .3px;
+    cursor: pointer;
+    align-self: end;
+    justify-self: flex-end;
+    transition: 
+      background-color .2s ease,
+      border-color .2s ease,
+      color .15s ease-in-out, /* добавлен плавный переход цвета текста */
+      transform .12s ease,
+      box-shadow .2s ease;
+
+    &:hover {
+      background: var(--pe-accent-hover);
+      border-color: #fff; /* сохраняем белый при hover */
+      color: #fff; /* текст плавно становится белым */
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, .3);
+    }
+  }
+
+  @media (max-width: 980px) {
+    &-card {
+      grid-template-columns: minmax(280px, 42%) 1fr;
+
+      &:nth-of-type(even) {
+        grid-template-columns: 1fr minmax(280px, 42%);
+      }
+    }
+
+    &-card__img {
+      width: 100%;
+      height: 240px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    &-card,
+    &-card:nth-of-type(even) {
+      grid-template-columns: 1fr;
+
+      .proliveevents-card__img {
+        order: 0;
+        width: 100%;
+        height: 210px;
+      }
+
+      .proliveevents-card__body {
+        order: 0;
+        padding-inline: clamp(12px, 4vw, 24px);
+        text-align: center;
+      }
+
+      .proliveevents-card__btn {
+        justify-self: center;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &-card,
+    &-card__img,
+    &-card__btn {
+      transition: none !important;
+    }
+  }
+}

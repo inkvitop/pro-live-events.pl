@@ -1,0 +1,22 @@
+html, body {
+  height: auto;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* резерв места под скролл (там, где поддерживается) */
+html { scrollbar-gutter: stable; }
+
+/* переменная ширины скролла; JS будет её задавать */
+:root { --sbw: 0px; }
+
+/* когда открыта модалка — не скроллим и компенсируем ширину скролла */
+html.modal-open {
+  overflow: hidden;
+  padding-right: var(--sbw);
+}
+
+html { scroll-behavior: smooth; }
+:root { --header-offset: 80px; }           /* запас по умолчанию */
+section { scroll-margin-top: var(--header-offset); }
