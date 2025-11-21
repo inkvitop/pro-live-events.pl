@@ -252,26 +252,6 @@
     font-size: .9rem; 
     color: #00c853; 
   }
-
-  /* адаптив */
-  @media (max-width: 1024px) { 
-    width: 70%; 
-  }
-  
-  @media (max-width: 720px)  { 
-    width: 100%; 
-    padding: 1.25rem; 
-    
-    .form__fieldset { 
-      grid-template-columns: 1fr; 
-    } 
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { 
-      transition: none !important; 
-    }
-  }
 }
 
 .contacts-box-contacts {
@@ -379,5 +359,138 @@
   .leaflet-container {
     font: inherit;
     z-index: 0;
+    // margin-bottom: 15px;
+    // margin-top: 15px;
+  }
+}
+
+/* ===== АДАПТИВ ===== */
+
+/* Брейкпоинт 1200px - меняем ориентацию на вертикальную */
+@media (max-width: 1200px){
+  .contacts{ 
+    height: auto; 
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+
+  .contacts-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .contacts-title-border {
+    width: min(800px, 90%);
+    margin-bottom: 30px;
+  }
+
+  .contacts-box{ 
+    flex-direction: column; 
+    width: 100%;
+    height: auto;
+    gap: 40px;
+  }
+
+  .contacts-box-border {
+    display: none; /* убираем вертикальную линию */
+  }
+
+  .contacts-box-contacts-adres {
+    padding-bottom: 20px;
+  }
+
+  .contacts-box-contacts-adres-info {
+    margin-bottom: 20px;
+  }
+
+  .form--contact {
+    width: min(90%, 600px);
+    margin: 0 auto;
+    order: 2; /* форма идет после контактов */
+  }
+
+  .contacts-box-contacts {
+    width: min(90%, 600px);
+    height: auto;
+    min-height: 500px;
+    order: 1; /* контакты идут первыми */
+    margin: 0 auto;
+  }
+
+  /* Корректируем высоту карты для мобильных */
+  .leaflet-map {
+    height: 300px;
+  }
+}
+
+/* Дополнительные адаптивные правки для очень маленьких экранов */
+@media (max-width: 768px){
+  .contacts {
+    padding: 20px 0;
+  }
+
+  .contacts-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .contacts-title-border {
+    width: 85%;
+    margin-bottom: 20px;
+  }
+
+  .form--contact {
+    width: calc(100% - 32px);
+    padding: 1.5rem;
+    
+    .form__fieldset { 
+      grid-template-columns: 1fr; 
+    }
+  }
+
+  .contacts-box-contacts {
+    width: calc(100% - 32px);
+    padding: 0 10px;
+
+    &-title {
+      font-size: 2rem;
+    }
+
+    &-info-persona-label {
+      font-size: 1.5rem;
+    }
+
+    &-info-persona-box-name,
+    &-info-persona-box-tel {
+      font-size: 1.1rem;
+    }
+
+    &-adres-title {
+      font-size: 1.7rem;
+    }
+
+    &-adres-info {
+      font-size: 1.1rem;
+    }
+  }
+
+  .leaflet-map {
+    height: 250px;
+  }
+}
+
+/* Адаптив для формы (оставляем существующие) */
+@media (max-width: 1024px) { 
+  .form--contact { 
+    width: 70%; 
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form--contact * { 
+    transition: none !important; 
   }
 }

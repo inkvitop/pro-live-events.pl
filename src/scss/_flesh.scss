@@ -4,7 +4,7 @@
     background: #f8f9fa;
     min-height: 400px;
     font-family: 'Arial', sans-serif;
-    scroll-margin-top: 100px; // Добавлено для плавной прокрутки
+    scroll-margin-top: 100px;
 
     &-container {
         max-width: 1200px;
@@ -148,43 +148,71 @@
         }
     }
 
-    // ✅ СТИЛИ ПАГИНАЦИИ
+    // ✅ СТИЛИ ПАГИНАЦИИ (ИСПРАВЛЕННЫЕ)
     &-pagination {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
         margin-top: 2rem;
+        padding: 0 1rem;
+        flex-wrap: wrap;
         
         .pagination-btn {
             background: white;
-            border: 1px solid #dee2e6;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            border: 2px solid #e9ecef;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
+            min-width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+            font-weight: 500;
             
             &:hover:not(.disabled) {
                 background: #007bff;
                 color: white;
                 border-color: #007bff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
             }
             
             &.active {
                 background: #007bff;
                 color: white;
                 border-color: #007bff;
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(0, 123, 255, 0.4);
             }
             
             &.disabled {
-                opacity: 0.5;
+                opacity: 0.4;
                 cursor: not-allowed;
+                background: #f8f9fa;
+                color: #6c757d;
+                border-color: #e9ecef;
+                
+                &:hover {
+                    transform: none;
+                    box-shadow: none;
+                    background: #f8f9fa;
+                    color: #6c757d;
+                    border-color: #e9ecef;
+                }
             }
         }
         
         .pagination-numbers {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 100%;
         }
     }
 }
@@ -205,51 +233,111 @@
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        
+        .product-gallery {
+            .gallery-main {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
     }
 
-    // Контейнер для квадратного изображения
-    .product-image-container {
+    // Контейнер для галереи
+    .product-gallery {
         position: relative;
         width: 100%;
-        padding-bottom: 100%; // Создаем квадрат
         margin-bottom: 15px;
-        border-radius: 4px;
+        border-radius: 8px;
         overflow: hidden;
         background: #f5f5f5;
-    }
 
-    .product-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        background: #f8f9fa;
-        
-        img {
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; // Сохраняем пропорции, помещаем в контейнер
-            transition: transform 0.5s ease;
-        }
-        
-        .no-image {
-            color: #999;
-            font-style: italic;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
+        // Основное изображение
+        .gallery-main {
+            position: relative;
             width: 100%;
-            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            padding-bottom: 100%; // Квадратное соотношение
+            overflow: hidden;
+            
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                transition: transform 0.5s ease;
+            }
+            
+            .no-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #999;
+                font-style: italic;
+                background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            }
         }
-        
+
+        // Миниатюры
+        .gallery-thumbnails {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+            padding: 0 2px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .thumbnail {
+                flex: 0 0 40px;
+                width: 40px;
+                height: 40px;
+                border-radius: 4px;
+                overflow: hidden;
+                cursor: pointer;
+                border: 2px solid transparent;
+                transition: all 0.2s ease;
+                background: #f8f9fa;
+                
+                &:hover {
+                    border-color: #007bff;
+                    transform: scale(1.05);
+                }
+                
+                &.active {
+                    border-color: #F26522;
+                }
+                
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                
+                .thumbnail-placeholder {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #e9ecef;
+                    color: #999;
+                    font-size: 0.7rem;
+                }
+            }
+        }
+
+        // Бейдж "Out of Stock"
         .out-of-stock {
             position: absolute;
             top: 10px;
@@ -262,9 +350,18 @@
             font-weight: 600;
             z-index: 2;
         }
-        
-        &:hover img {
-            transform: scale(1.05);
+
+        // Индикатор количества изображений
+        .image-count {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            z-index: 2;
         }
     }
 
@@ -379,7 +476,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
     width: 90%;
-    max-width: 800px;
+    max-width: 1000px;
     max-height: 90vh;
     background: white;
     border-radius: 12px;
@@ -390,7 +487,6 @@
     opacity: 0;
     transition: all 0.3s ease;
     
-    // Сбрасываем скролл при каждом открытии
     scroll-behavior: auto;
 }
 
@@ -421,10 +517,8 @@
     overflow-y: auto;
     padding: 30px;
     
-    // Гарантируем, что контент всегда начинается сверху
     scroll-behavior: auto;
     
-    // Сбрасываем скролл
     &::-webkit-scrollbar {
         width: 6px;
     }
@@ -446,43 +540,79 @@
 
 .flesh-modal-product {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 400px 1fr;
     gap: 30px;
     align-items: start;
-    min-height: 0; // Важно для правильного скролла
+    min-height: 0;
 }
 
-.flesh-modal-image {
-    width: 100%;
-    height: 300px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    
-    img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-    }
-    
-    .no-image {
-        color: #999;
-        font-style: italic;
+// Галерея в модальном окне
+.flesh-modal-gallery {
+    .modal-gallery-main {
+        width: 100%;
+        height: 400px;
+        background: #f5f5f5;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        overflow: hidden;
+        margin-bottom: 15px;
+        
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .no-image {
+            color: #999;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }
+    }
+    
+    .modal-gallery-thumbnails {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        
+        .modal-thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            background: #f8f9fa;
+            
+            &:hover {
+                border-color: #007bff;
+                transform: scale(1.05);
+            }
+            
+            &.active {
+                border-color: #F26522;
+            }
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
     }
 }
 
 .flesh-modal-info {
     flex: 1;
-    min-height: 0; // Важно для правильного скролла
+    min-height: 0;
 }
 
 .flesh-modal-title {
@@ -534,7 +664,6 @@
     line-height: 1.6;
     color: #555;
     
-    // Стили для HTML контента внутри описания
     p {
         margin-bottom: 10px;
     }
@@ -610,10 +739,26 @@
         
         &-pagination {
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 1rem;
+            padding: 0 0.5rem;
+            
+            .pagination-btn {
+                min-width: 40px;
+                height: 40px;
+                padding: 0.4rem 0.6rem;
+                font-size: 0.85rem;
+            }
             
             .pagination-numbers {
                 order: -1;
+                width: 100%;
+                gap: 0.2rem;
+                
+                .pagination-btn {
+                    flex: 1;
+                    min-width: 35px;
+                    max-width: 50px;
+                }
             }
         }
     }
@@ -623,8 +768,17 @@
         gap: 20px;
     }
     
-    .flesh-modal-image {
-        height: 250px;
+    .flesh-modal-gallery {
+        .modal-gallery-main {
+            height: 300px;
+        }
+        
+        .modal-gallery-thumbnails {
+            .modal-thumbnail {
+                width: 50px;
+                height: 50px;
+            }
+        }
     }
     
     .flesh-modal-body {
@@ -632,6 +786,16 @@
     }
     
     .flesh-product {
+        .product-gallery {
+            .gallery-thumbnails {
+                .thumbnail {
+                    flex: 0 0 35px;
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+        
         .product-info {
             .product-bottom-section {
                 .product-price {
@@ -657,6 +821,23 @@
         &-container {
             padding: 0 0.5rem;
         }
+        
+        &-pagination {
+            .pagination-btn {
+                min-width: 36px;
+                height: 36px;
+                padding: 0.3rem 0.5rem;
+                font-size: 0.8rem;
+            }
+            
+            .pagination-numbers {
+                .pagination-btn {
+                    min-width: 32px;
+                    max-width: 40px;
+                    height: 32px;
+                }
+            }
+        }
     }
     
     .flesh-modal-content {
@@ -677,7 +858,30 @@
         font-size: 24px;
     }
     
+    .flesh-modal-gallery {
+        .modal-gallery-main {
+            height: 250px;
+        }
+        
+        .modal-gallery-thumbnails {
+            .modal-thumbnail {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    
     .flesh-product {
+        .product-gallery {
+            .gallery-thumbnails {
+                .thumbnail {
+                    flex: 0 0 30px;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        
         .product-info {
             .product-content {
                 .product-name {
@@ -701,5 +905,66 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 360px) {
+    .flesh {
+        &-pagination {
+            .pagination-numbers {
+                gap: 0.1rem;
+                
+                .pagination-btn {
+                    min-width: 28px;
+                    max-width: 35px;
+                    height: 28px;
+                    padding: 0.2rem 0.3rem;
+                    font-size: 0.75rem;
+                }
+            }
+        }
+    }
+    
+    .flesh-product {
+        .product-gallery {
+            .gallery-thumbnails {
+                .thumbnail {
+                    flex: 0 0 25px;
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+}
+
+// Добавьте в _flesh.scss
+.flesh-retry-loading {
+    .retry-info {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0.5rem 0;
+    }
+    
+    .retry-now-btn {
+        background: #28a745;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 1rem;
+        
+        &:hover {
+            background: #218838;
+        }
+    }
+}
+
+.flesh-error {
+    .error-details {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 0.5rem 0 1rem 0;
     }
 }

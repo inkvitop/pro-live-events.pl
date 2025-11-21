@@ -93,7 +93,7 @@
         order: 1;
         padding-inline-start: var(--pe-body-gutter);
         padding-inline-end: clamp(8px, 1.6vw, 18px);
-        text-align: center;
+        // text-align: start;
       }
 
       .proliveevents-card__btn {
@@ -127,7 +127,7 @@
     min-height: 100%;
     padding-inline-end: var(--pe-body-gutter);
     padding-inline-start: clamp(8px, 1.6vw, 18px);
-    text-align: center;
+    text-align: start;
     width: 100%;
   }
 
@@ -178,6 +178,7 @@
   }
 
   &-card__btn {
+    display: none;
     height: 42px;
     padding: 0 18px;
     border-radius: 10px;

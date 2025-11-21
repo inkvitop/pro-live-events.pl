@@ -1,3 +1,5 @@
+// src/js/i18n.js
+
 // Импортируем JSON файлы
 import plTranslations from '../lang/pl.json';
 import enTranslations from '../lang/en.json';
@@ -9,22 +11,38 @@ const translations = {
 
 let currentLang = 'pl';
 
+/**
+ * Установка языка
+ */
 export function setLanguage(lang) {
   if (translations[lang]) {
     currentLang = lang;
+
+    // сохраняем в localStorage
     localStorage.setItem('lang', lang);
+
+    // ставим атрибуты языка
     document.documentElement.setAttribute('lang', lang);
     document.body.setAttribute('data-lang', lang);
+
+    // применять перевод
     applyTranslations(lang);
+
     return true;
   }
   return false;
 }
 
+/**
+ * Получение текущего языка
+ */
 export function getCurrentLanguage() {
   return currentLang;
 }
 
+/**
+ * Применение переводов к элементам DOM
+ */
 export function applyTranslations(lang = currentLang, rootElement = document.body) {
   const langData = translations[lang];
   if (!langData) {
@@ -32,66 +50,57 @@ export function applyTranslations(lang = currentLang, rootElement = document.bod
     return;
   }
 
-  // ✅ УЛУЧШЕННАЯ ОТЛАДКА: показываем полную структуру JSON
-  // console.log(`🔍 Applying translations for ${lang}, full structure:`, langData);
-  // console.log(`🔍 Available top-level keys:`, Object.keys(langData));
-
-  // Находим все элементы с data-i18n атрибутом
   const elements = rootElement.querySelectorAll('[data-i18n]');
-  
-  let appliedCount = 0;
-  let missingCount = 0;
-  
-  // console.log(`🔍 Found ${elements.length} elements with data-i18n`);
   
   elements.forEach(element => {
     const key = element.getAttribute('data-i18n');
     const value = getNestedValue(langData, key);
-    
+
     if (value !== undefined) {
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
         element.placeholder = value;
       } else {
         element.textContent = value;
       }
-      appliedCount++;
-      // console.log(`✅ Applied: ${key} = ${value}`);
     } else {
-      missingCount++;
-      console.warn(`❌ Translation key not found: ${key} in ${lang}`);
-      
-      // ✅ УЛУЧШЕННАЯ ОТЛАДКА: показываем доступные ключи для этого пути
-      const keyParts = key.split('.');
-      if (keyParts.length > 0) {
-        const firstPart = keyParts[0];
-        // console.log(`🔍 Available keys under '${firstPart}':`, langData[firstPart] ? Object.keys(langData[firstPart]) : 'NOT FOUND');
-      }
+      console.warn(`❌ Translation key not found: ${key} (${lang})`);
     }
   });
 
-  // Обновляем атрибуты lang
+  // обновляем атрибуты языка
   document.documentElement.setAttribute('lang', lang);
   document.body.setAttribute('data-lang', lang);
-  
-  const elementName = rootElement === document.body ? 'document' : rootElement.tagName;
-  // console.log(`✅ Translations applied to ${elementName}: ${lang} (${appliedCount} applied, ${missingCount} missing)`);
 }
 
-// Вспомогательная функция для получения вложенных значений
+/**
+ * Вспомогательная функция получения вложенных значений по ключам "a.b.c"
+ */
 function getNestedValue(obj, path) {
   return path.split('.').reduce((current, key) => {
     return current && current[key] !== undefined ? current[key] : undefined;
   }, obj);
 }
 
-// Инициализация языка при загрузке
+/**
+ * Инициализация языка при загрузке страницы
+ * (по твоей логике — всегда PL)
+ */
 export function initI18n() {
-  // Очищаем localStorage чтобы сбросить английский
+  // сбрасываем прошлый язык
   localStorage.removeItem('lang');
-  
+
   const lang = 'pl';
-  
   setLanguage(lang);
-  // console.log(`🌍 Language forced to: ${lang}`);
+
   return lang;
 }
+
+/* ============================================================
+   🌐 ГЛОБАЛЬНЫЙ ЭКСПОРТ (главное изменение!)
+   ============================================================ */
+
+// Теперь FleshRendererUI, FleshRendererModal и все динамические
+// секции могут безопасно вызывать window.applyTranslations().
+window.applyTranslations = applyTranslations;
+window.getCurrentLanguage = getCurrentLanguage;
+window.setLanguage = setLanguage;

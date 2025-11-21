@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 [data-theme="dark"] {
 --color-bg:             #1f1f1f;  // основной фон
 --color-bg2:            #757575;  // второй фон
@@ -15,28 +7,6 @@
 
 --text-primary:         #e8e8e8;  // основной текст
 --text-secondary:       #cdcdcd;  // второстепенный текст
-
---color-accent:         #F26522;  // акцентный цвет (оранжевый)
---color-accent-hover:   #FA7A2F;  // акцентный цвет при наведении
-}
-
-
-
-
-
-
-
-
-
-
-
-[data-theme='light'] {
---color-bg:             #FFFFFF;  // основной фон
---color-bg2:            #FFFFFF;  // второй фон
---color-bg3:            #FFFFFF;  // второй фон
-
---color-fg:             #0B0B0B;  // основной текст
---color-muted:          #999999;  // второстепенный текст
 
 --color-accent:         #F26522;  // акцентный цвет (оранжевый)
 --color-accent-hover:   #FA7A2F;  // акцентный цвет при наведении

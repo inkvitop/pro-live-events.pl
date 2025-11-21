@@ -11,13 +11,17 @@ module.exports = (env, argv) => {
 
   return {
     entry: './src/index.js',
-    
+
     output: {
-      filename: isProduction ? 'js/main.[contenthash:8].js' : 'js/main.js',
+      filename: isProduction ? 'js/[name].[contenthash:8].js' : 'js/[name].js',
+      chunkFilename: isProduction
+        ? 'js/[name].[contenthash:8].chunk.js'
+        : 'js/[name].chunk.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
-      // ✅ ВАЖНО: Для GitHub Pages используем относительные пути
-      publicPath: isGitHubPages ? './' : '',
+
+      // ✔ универсальный вариант для реального хостинга
+      publicPath: './'
     },
 
     mode: isProduction ? 'production' : 'development',
@@ -36,52 +40,7 @@ module.exports = (env, argv) => {
       client: {
         overlay: true,
         progress: true,
-      },
-      proxy: [
-        {
-          context: ['/api'],
-          target: 'https://flashpro.pl',
-          changeOrigin: true,
-          secure: false,
-          logLevel: 'debug',
-          pathRewrite: {
-            '^/api': '/en/api'
-          },
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization, X-Api-Key"
-          },
-          onProxyReq: (proxyReq, req, res) => {
-            console.log('🔁 PROXY:', req.method, req.url, '→', proxyReq.path);
-            proxyReq.setHeader('Origin', 'https://flashpro.pl');
-            proxyReq.setHeader('Referer', 'https://flashpro.pl/');
-          },
-          onProxyRes: (proxyRes, req, res) => {
-            console.log('📡 PROXY RESPONSE:', proxyRes.statusCode, req.url);
-            proxyRes.headers['Access-Control-Allow-Origin'] = '*';
-            proxyRes.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, PATCH, OPTIONS';
-            proxyRes.headers['Access-Control-Allow-Headers'] = 'X-Requested-With, content-type, Authorization, X-Api-Key';
-          },
-          onError: (err, req, res) => {
-            console.log('❌ PROXY ERROR:', err.message);
-          }
-        }
-      ],
-      setupMiddlewares: (middlewares, devServer) => {
-        if (!devServer) {
-          throw new Error('webpack-dev-server is not defined');
-        }
-
-        devServer.app.use((req, res, next) => {
-          res.header('Access-Control-Allow-Origin', '*');
-          res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-          res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-Api-Key');
-          next();
-        });
-
-        return middlewares;
-      },
+      }
     },
 
     module: {
@@ -122,11 +81,7 @@ module.exports = (env, argv) => {
         {
           test: /\.json$/,
           type: 'javascript/auto',
-          use: [
-            {
-              loader: 'json-loader'
-            }
-          ],
+          use: ['json-loader'],
         },
       ],
     },
@@ -134,50 +89,50 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
-        minify: isProduction ? {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeRedundantAttributes: true,
-          useShortDoctype: true,
-          removeEmptyAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          keepClosingSlash: true,
-          minifyJS: true,
-          minifyCSS: true,
-          minifyURLs: true,
-        } : false,
+        minify: isProduction
+          ? {
+              removeComments: true,
+              collapseWhitespace: true,
+              removeRedundantAttributes: true,
+              useShortDoctype: true,
+              removeEmptyAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              keepClosingSlash: true,
+              minifyJS: true,
+              minifyCSS: true,
+              minifyURLs: true,
+            }
+          : false,
         cache: false,
       }),
 
       new CopyWebpackPlugin({
         patterns: [
-          {
-            from: 'src/assets',
-            to: 'assets',
-            noErrorOnMissing: true
-          },
-          // ✅ Добавляем CNAME файл если используем свой домен
-          {
-            from: 'CNAME',
-            to: '',
-            noErrorOnMissing: true
-          }
+          { from: 'src/assets', to: 'assets', noErrorOnMissing: true },
+
+          // ✔ добавлено: partials теперь попадут в dist
+          { from: 'src/html/partials', to: 'html/partials', noErrorOnMissing: true },
+
+          // ✔ копирование локализаций
+          { from: 'src/lang', to: 'lang', noErrorOnMissing: true }
         ],
       }),
 
-      ...(isProduction ? [
-        new MiniCssExtractPlugin({
-          filename: 'css/[name].[contenthash:8].css',
-          chunkFilename: 'css/[name].[contenthash:8].chunk.css',
-        })
-      ] : []),
+      ...(isProduction
+        ? [
+            new MiniCssExtractPlugin({
+              filename: 'css/[name].[contenthash:8].css',
+              chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+            })
+          ]
+        : []),
     ],
 
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
       },
-      extensions: ['.js', '.json']
+      extensions: ['.js', '.json'],
     },
 
     optimization: {
@@ -185,38 +140,14 @@ module.exports = (env, argv) => {
       minimizer: [
         new TerserPlugin({
           terserOptions: {
-            parse: {
-              ecma: 8,
-            },
-            compress: {
-              ecma: 5,
-              warnings: false,
-              comparisons: false,
-              inline: 2,
-              drop_console: true,
-            },
-            mangle: {
-              safari10: true,
-            },
-            output: {
-              ecma: 5,
-              comments: false,
-              ascii_only: true,
-            },
+            compress: { drop_console: isProduction },
+            output: { comments: false }
           },
           parallel: true,
         }),
-        new CssMinimizerPlugin({
-          minimizerOptions: {
-            preset: [
-              'default',
-              {
-                discardComments: { removeAll: true },
-              },
-            ],
-          },
-        }),
+        new CssMinimizerPlugin(),
       ],
+
       splitChunks: {
         chunks: 'all',
         cacheGroups: {
@@ -225,23 +156,28 @@ module.exports = (env, argv) => {
             name: 'vendors',
             chunks: 'all',
           },
-          styles: {
-            name: 'styles',
-            type: 'css/mini-extract',
-            chunks: 'all',
-            enforce: true,
-          },
+          ...(isProduction
+            ? {
+                styles: {
+                  name: 'styles',
+                  type: 'css/mini-extract',
+                  chunks: 'all',
+                  enforce: true,
+                },
+              }
+            : {}),
         },
       },
-      runtimeChunk: {
-        name: 'runtime',
-      },
+
+      ...(isProduction
+        ? {
+            runtimeChunk: { name: 'runtime' }
+          }
+        : {}),
     },
 
     performance: {
-      hints: isProduction ? 'warning' : false,
-      maxEntrypointSize: 512000,
-      maxAssetSize: 512000,
-    },
+      hints: false
+    }
   };
 };

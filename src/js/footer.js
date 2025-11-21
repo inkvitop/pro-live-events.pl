@@ -1,4 +1,4 @@
-// Footer interactions: modal + newsletter validation + no-jump scroll lock
+// Footer interactions: modal + newsletter validation + no-jump scroll lock + back to top
 export function initFooter() {
   // ===== helpers: lock/unlock scroll with scrollbar compensation =====
   const docEl = document.documentElement;
@@ -19,6 +19,18 @@ export function initFooter() {
     docEl.style.removeProperty('--sbw');
     scrollLocked = false;
   };
+
+  // ===== Back to Top button =====
+  const backToTopBtn = document.querySelector('.footer__totop[href="#top"]');
+  
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  backToTopBtn?.addEventListener('click', scrollToTop);
 
   // ===== Privacy Policy modal =====
   const modal = document.getElementById('privacy-modal');

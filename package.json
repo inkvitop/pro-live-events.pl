@@ -1,27 +1,29 @@
 {
   "name": "pro-live-events.pl-2.0",
   "version": "1.0.0",
+  "description": "Pro Live Events website build",
   "main": "src/index.js",
+
   "scripts": {
     "start": "webpack serve --mode development",
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production",
+
+    "prebuild": "node scripts/prebuild.js",
+    "build": "npm run prebuild && webpack --mode production",
+
+    "save": "node scripts/save.js",
+
     "build:dev": "webpack --mode development",
     "watch": "webpack --watch --mode development",
-    "analyze": "webpack-bundle-analyzer dist/js/main.*.js",
+
     "build:gh-pages": "cross-env NODE_ENV=github-pages webpack --mode production",
     "predeploy": "npm run build:gh-pages",
     "deploy": "gh-pages -d dist"
   },
-  "keywords": [
-    "website",
-    "events",
-    "github-pages"
-  ],
-  "author": "Your Name",
+
+  "author": "Pro Live Events",
   "license": "ISC",
-  "description": "Pro Live Events website deployed on GitHub Pages",
-  "homepage": "https://yourusername.github.io/pro-live-events.pl-2.0",
+
   "devDependencies": {
     "copy-webpack-plugin": "^13.0.0",
     "cross-env": "^10.1.0",
@@ -41,6 +43,7 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
   },
+
   "dependencies": {
     "leaflet": "^1.9.4"
   }

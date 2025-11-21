@@ -2,7 +2,7 @@
   "header": {
     "menu": {
       "ple": "Pro Live Events",
-      "flesh": "FlashPro",
+      "flesh": "Flash-Butrym Group",
       "gallery": "Galeria",
       "artists": "Artyści",
       "contacts": "Kontakt"
@@ -12,13 +12,13 @@
     "ple": {
       "badge": "Pro Live Events",
       "title": "Organizacja wydarzeń",
-      "desc": "Kompleksowa produkcja sceniczna...",
-      "cta": "Zobacz ofertę"
+      "desc": "Pro Live Events to agencja specjalizująca się w kompleksowej organizacji wydarzeń — od kameralnych spotkań po duże produkcje sceniczne. Tworzymy unikalne koncepcje, dbając o każdy detal: technikę, scenografię, oprawę świetlną i multimedialną. Naszym celem jest nie tylko zrealizować wydarzenie, ale zadbać, aby wspomnienia pozostały z Wami na zawsze.",
+      "cta": "Poznaj ofertę"
     },
     "flesh": {
       "badge": "FlashPro",
-      "title": "Profesjonalne oświetlenie",
-      "desc": "Zaawansowane rozwiązania oświetleniowe dla Twoich wydarzeń",
+      "title": "Dystrybucja Flash-Butrym",
+      "desc": "Jesteśmy oficjalnym dystrybutorem marki Flash-Butrym — producenta profesjonalnych lamp, komponentów oświetleniowych i akcesoriów scenicznych. Na naszej stronie znajdziesz pełną ofertę produktów: od źródeł światła i soczewek, po przewody, złącza i elementy montażowe. Zapewniamy sprzęt, który gwarantuje profesjonalne efekty w każdej realizacji — od scenicznych po studyjne.",
       "cta": "Poznaj ofertę"
     }
   },
@@ -27,29 +27,36 @@
   },
   "prolive": {
     "org": {
-      "title": "Organizacja wydarzeń",
-      "desc": "Kompleksowa organizacja i produkcja wydarzeń na najwyższym poziomie",
+      "title": "Profesjonalna realizacja wydarzeń",
+      "desc": "Organizujemy kompleksowe produkcje — od koncepcji, przez technikę, po pełną obsługę sceny i zaplecza. Dbamy o każdy detal: dźwięk, światło, multimedia i bezpieczeństwo. Nasze realizacje łączą kreatywność i precyzję techniczną, tworząc wydarzenia, które zostają w pamięci uczestników.",
       "btn": "Dowiedz się więcej"
     },
     "rental": {
-      "title": "Wynajem sprzętu",
-      "desc": "Profesjonalny sprzęt sceniczny i oświetleniowy do wynajęcia",
+      "title": "Profesjonalny sprzęt, dostępny także w wynajmie",
+      "desc": "Dysponujemy nowoczesnym parkiem technicznym — od oświetlenia scenicznego i nagłośnienia, po ekrany LED i systemy multimedialne. Nasze urządzenia to sprzęt klasy eventowej, regularnie serwisowany i gotowy do pracy w każdych warunkach. Oferujemy również wynajem pojedynczych elementów lub kompletnych zestawów technicznych z pełnym wsparciem obsługi.",
       "btn": "Zobacz ofertę"
     },
     "crew": {
-      "title": "Zespół techniczny",
-      "desc": "Doświadczona ekipa techniczna do realizacji każdego projektu",
+      "title": "Specjaliści z każdej dziedziny",
+      "desc": "Tworzymy zespół doświadczonych realizatorów — dźwiękowców, oświetleniowców, operatorów kamer i techników multimedialnych. Jeśli potrzebujesz ludzi do obsługi technicznej wydarzenia, skompletujemy pełną ekipę dopasowaną do Twojego projektu. Nasza siła tkwi w współpracy — łączymy kompetencje, by każde wydarzenie przebiegło sprawnie i profesjonalnie.",
       "btn": "Skontaktuj się"
     },
     "artists": {
-      "title": "Współpraca z artystami",
-      "desc": "Reprezentacja i management utalentowanych artystów",
+      "title": "Różnorodność stylów i form scenicznych",
+      "desc": "Współpracujemy z szerokim gronem artystów — od wykonawców muzyki dziecięcej i rozrywkowej, po zespoły estradowe, stand-up i performerów. Dobieramy program do charakteru wydarzenia, zapewniając unikalne doświadczenie sceniczne. Dzięki naszemu zapleczu technicznemu i artystycznemu tworzymy kompleksowe show — gotowe do występu w każdej przestrzeni.",
       "btn": "Poznaj artystów"
     }
   },
+"fleshProducts": {
+  "title": "Dystrybucja produktów Flash-Butrym Group",
+  "empty": "Brak dostępnych produktów.",
+  "notFound": "Brak produktów w tej kategorii",
+  "refresh": "Odśwież",
+  "showAll": "Pokaż wszystkie produkty"
+},
   "artists": {
-    "title": "Nasi Artyści",
-    "lead": "Poznaj naszych utalentowanych artystów",
+    "title": "Artyści i programy sceniczne",
+    "lead": "Współpracujemy z artystami z różnych gatunków i scen — od muzyki rozrywkowej i estradowej po stand-up, występy taneczne i programy dla dzieci. Dzięki szerokiej bazie wykonawców możemy dopasować repertuar do charakteru każdego wydarzenia — firmowego, plenerowego czy kameralnego. Każdy program to sprawdzona jakość i profesjonalne przygotowanie sceniczne.",
     "items": {
       "karolina": {
         "name": "Karolina",
@@ -130,7 +137,7 @@
       "technicalDirectorName": "Michał Chojnacki",
       "technicalDirectorPhone": "+48 602 465 066",
       "map": "Nasza lokalizacja",
-      "adres": "ul. Oleska 29A, Zawada, Polska"
+      "adres": "ul. Oleska 31B, Zawada, Polska"
     },
     "form": {
       "nameLabel": "Imię i nazwisko",
@@ -160,13 +167,13 @@
   "footer": {
     "about": {
       "title": "O nas",
-      "text": "Profesjonalna organizacja wydarzeń i produkcja sceniczna na najwyższym poziomie"
+      "text": "Pro Live Events to zespół ludzi z pasją do światła, dźwięku i sceny. Realizujemy wydarzenia od strony technicznej i artystycznej — od koncertów po imprezy firmowe. Łączymy nowoczesny sprzęt, doświadczenie i kreatywność, by każde wydarzenie miało swój wyjątkowy klimat."
     },
     "links": {
       "title": "Szybkie linki",
       "home": "Strona główna",
       "ple": "Pro Live Events",
-      "flashpro": "FlashPro",
+      "flashpro": "Flash-Butrym Group",
       "gallery": "Galeria",
       "artists": "Artyści",
       "contact": "Kontakt",
@@ -189,23 +196,5 @@
     "filterConcerts": "Koncerty",
     "filterEvents": "Wydarzenia",
     "filterLighting": "Oświetlenie"
-  },
-  "flesh": {
-    "title": "FlashPro - Oświetlenie",
-    "subtitle": "Profesjonalne rozwiązania oświetleniowe",
-    "services": {
-      "design": {
-        "title": "Projektowanie",
-        "desc": "Kompleksowe projekty oświetleniowe"
-      },
-      "rental": {
-        "title": "Wynajem",
-        "desc": "Nowoczesny sprzęt oświetleniowy"
-      },
-      "operation": {
-        "title": "Obsługa",
-        "desc": "Profesjonalna obsługa techniczna"
-      }
-    }
   }
 }

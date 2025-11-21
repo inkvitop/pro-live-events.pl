@@ -8,6 +8,7 @@
   isolation: isolate;   /* чтобы фон с отриц. z-index не «утонул» */
   padding: 80px 20px;
   background: none;
+  display: none;
 }
 
 /* ---- Фон секции (два слоя в DOM, безопасно и предсказуемо) ---- */
